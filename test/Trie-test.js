@@ -31,6 +31,13 @@ import Trie from '../lib/Trie';
      trie.insert('world');
      assert.equal(trie.count, 2);
    });
+   it('Should not count duplicate words twice', () => {
+     let trie = new Trie()
+     trie.insert('hello');
+     assert.equal(trie.count, 1);
+     trie.insert('hello');
+     assert.equal(trie.count, 1);
+   });
  });
 describe('Should be able to suggest words based on matching prefix', () => {
   it('Should suggest all words with the matching prefix', () => {
